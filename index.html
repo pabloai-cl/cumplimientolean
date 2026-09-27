@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regulatory Data Products | The New Standard for Mining Operations</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* DESIGN SYSTEM & VARIABLES */
         :root {
             --bg-main: #030712;
             --bg-surface: #0b1329;
@@ -48,9 +46,7 @@
             padding: 0 24px;
         }
 
-        /* NAVIGATION BAR */
         nav {
-            border-b: 1px solid var(--border);
             background: rgba(3, 7, 18, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -91,23 +87,10 @@
             color: var(--primary);
         }
 
-        /* HERO SECTION (FLETCH FRAMEWORK POV) */
         .hero {
             padding: 180px 0 80px 0;
             text-align: center;
             position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(56,189,248,0.08) 0%, rgba(3,7,18,0) 70%);
-            z-index: -1;
         }
 
         .badge {
@@ -125,7 +108,7 @@
         }
 
         h1 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -1.5px;
@@ -140,14 +123,13 @@
         }
 
         .lead {
-            font-size: 20px;
+            font-size: 19px;
             color: var(--text-muted);
             max-width: 800px;
             margin: 0 auto 48px auto;
             font-weight: 500;
         }
 
-        /* MECANISMO ÚNICO: GUÍA MICHELIN */
         .michelin-box {
             background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(11,19,41,0.6) 100%);
             border: 1px solid var(--border);
@@ -155,6 +137,7 @@
             padding: 48px;
             margin-bottom: 96px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: left;
         }
 
         .michelin-grid {
@@ -169,7 +152,7 @@
         }
 
         .michelin-content h2 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 16px;
@@ -177,7 +160,7 @@
 
         .michelin-content p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.7;
         }
 
@@ -190,7 +173,7 @@
         }
 
         .michelin-metric .value {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 800;
             color: #a5b4fc;
             line-height: 1;
@@ -205,14 +188,13 @@
             letter-spacing: 1px;
         }
 
-        /* TRANSICIÓN DE DOLOR (ANTES VS DESPUÉS) */
         .section-header {
             text-align: center;
             margin-bottom: 56px;
         }
 
         .section-header h2 {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 16px;
@@ -230,6 +212,7 @@
             grid-template-columns: 1fr;
             gap: 32px;
             margin-bottom: 96px;
+            text-align: left;
         }
 
         @media (min-width: 768px) {
@@ -243,11 +226,11 @@
             background-color: rgba(255,255,255,0.01);
         }
 
-        .vs-card.old { border-color: rgba(248, 113, 113, 0.15); background: linear-gradient(180deg, rgba(248,113,113,0.01) 0%, rgba(3,7,18,0) 100%); }
-        .vs-card.new { border-color: rgba(74, 222, 128, 0.15); background: linear-gradient(180deg, rgba(74,222,128,0.01) 0%, rgba(3,7,18,0) 100%); }
+        .vs-card.old { border-color: rgba(248, 113, 113, 0.15); }
+        .vs-card.new { border-color: rgba(74, 222, 128, 0.15); }
 
         .vs-card h4 {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
             margin-bottom: 24px;
         }
@@ -260,7 +243,7 @@
         }
 
         .vs-list li {
-            font-size: 15px;
+            font-size: 14px;
             color: #cbd5e1;
             margin-bottom: 16px;
             display: flex;
@@ -270,19 +253,19 @@
         .vs-list li::before {
             margin-right: 12px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             flex-shrink: 0;
         }
 
         .vs-card.old .vs-list li::before { content: "✕"; color: var(--error); }
         .vs-card.new .vs-list li::before { content: "✓"; color: var(--success); }
 
-        /* PRODUCT-PRODUCT MATCHING (OFERTAS) */
         .offers-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 32px;
             margin-bottom: 96px;
+            text-align: left;
         }
 
         @media (min-width: 768px) {
@@ -293,21 +276,10 @@
             background-color: var(--bg-surface);
             border: 1px solid var(--border);
             border-radius: 24px;
-            padding: 48px;
+            padding: 44px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .offer-card.premium:hover {
-            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .offer-tag {
@@ -323,7 +295,7 @@
         .offer-tag.dfy { color: var(--secondary); }
 
         .offer-card h3 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 16px;
@@ -331,7 +303,7 @@
 
         .offer-card p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 32px;
         }
 
@@ -343,7 +315,7 @@
         }
 
         .specs-list li {
-            font-size: 15px;
+            font-size: 14px;
             color: #e2e8f0;
             margin-bottom: 16px;
             display: flex;
@@ -358,3 +330,46 @@
         }
 
         .offer-card.premium .specs-list li::before {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-blue { background-color: var(--primary); color: #030712; }
+        .btn-purple { background-color: var(--secondary); color: #ffffff; }
+
+        .ghostwriter-section {
+            border-top: 1px solid var(--border);
+            padding: 96px 0;
+        }
+
+        .pga-tabs-wrapper {
+            max-width: 900px;
+            margin: 48px auto 0 auto;
+            text-align: left;
+        }
+        
+        .tab-radio { display: none; }
+        
+        .labels-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-trigger {
