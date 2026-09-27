@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regulatory Data Products | The New Standard for Mining Operations</title>
     <style>
+        /* DISEÑO LINEAL PURO - EN COLUMNA ÚNICA VERTICAL - IMPOSIBLE DE CORTAR */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,16 +13,21 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        body {
+        html, body {
             background-color: #030712;
             color: #f8fafc;
             line-height: 1.6;
-            padding: 40px 20px;
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            display: block;
         }
 
-        .main-container {
-            max-width: 950px;
+        .main-scroll-layout {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 40px 20px 200px 20px; /* 200px de espacio al final para asegurar el scroll */
+            display: block;
         }
 
         .text-center {
@@ -42,7 +48,7 @@
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 34px;
             color: #ffffff;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -55,69 +61,54 @@
         .lead-p {
             font-size: 16px;
             color: #94a3b8;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .block-title {
             font-size: 26px;
             color: #ffffff;
-            margin-top: 50px;
+            margin-top: 60px;
             margin-bottom: 10px;
             font-weight: bold;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 10px;
         }
 
         .block-subtitle {
             font-size: 14px;
             color: #94a3b8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        /* ESTRUCTURA DE TABLA BLINDADA PARA EVITAR CORTES VISUALES */
-        .table-layout {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
-            margin-bottom: 40px;
-        }
-
-        .table-cell {
+        /* CAJAS CONTENEDORAS EN FILA ÚNICA VERTICAL */
+        .content-row-box {
             background-color: #0b1329;
             border: 1px solid #1e293b;
             border-radius: 12px;
             padding: 30px;
-            vertical-align: top;
-            width: 50%;
-        }
-
-        .cell-old { border-color: rgba(248, 113, 113, 0.4); background-color: rgba(248, 113, 113, 0.01); }
-        .cell-new { border-color: rgba(74, 222, 128, 0.4); background-color: rgba(74, 222, 128, 0.01); }
-        .cell-diy { border-color: #38bdf8; }
-        .cell-dfy { border-color: #6366f1; }
-
-        .cell-title-old { color: #f87171; font-size: 16px; font-weight: bold; margin-bottom: 15px; }
-        .cell-title-new { color: #4ade80; font-size: 16px; font-weight: bold; margin-bottom: 15px; }
-        
-        .offer-tag { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .offer-tag.diy { color: #38bdf8; }
-        .offer-tag.dfy { color: #6366f1; }
-
-        .cell-h3 { font-size: 22px; color: #ffffff; margin-bottom: 15px; font-weight: bold; }
-        .cell-p { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
-
-        .bullet-list { list-style: none; }
-        .bullet-list li { font-size: 13px; color: #cbd5e1; margin-bottom: 10px; }
-
-        .box-panel {
-            background-color: #0b1329;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
+            width: 100%;
+            display: block;
             text-align: left;
         }
 
-        .box-panel h2 { font-size: 22px; color: #ffffff; margin-bottom: 15px; font-weight: bold; }
-        .box-panel p { color: #94a3b8; font-size: 14px; }
+        .border-red { border-color: rgba(248, 113, 113, 0.4); background-color: rgba(248, 113, 113, 0.01); }
+        .border-green { border-color: rgba(74, 222, 128, 0.4); background-color: rgba(74, 222, 128, 0.01); }
+        .border-blue { border-color: #38bdf8; }
+        .border-purple { border-color: #6366f1; }
+
+        .title-old { color: #f87171; font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+        .title-new { color: #4ade80; font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+        
+        .offer-tag { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .offer-tag.diy { color: #38bdf8; }
+        .offer-tag.dfy { color: #6366f1; }
+
+        .box-h3 { font-size: 22px; color: #ffffff; margin-bottom: 12px; font-weight: bold; }
+        .box-p { color: #94a3b8; font-size: 14px; margin-bottom: 15px; }
+
+        .bullet-list { list-style: none; padding-left: 5px; }
+        .bullet-list li { font-size: 13px; color: #cbd5e1; margin-bottom: 8px; }
 
         .btn-click {
             display: block;
@@ -142,21 +133,22 @@
             padding: 25px;
             margin-bottom: 20px;
             text-align: left;
+            display: block;
         }
         .article-box .num { font-size: 11px; font-weight: bold; color: #6366f1; margin-bottom: 5px; }
         .article-box h3 { font-size: 18px; color: #ffffff; margin-bottom: 10px; font-weight: bold; }
         .article-box p { color: #94a3b8; font-size: 13px; }
 
-        .faq-row { border-bottom: 1px solid #1e293b; padding: 20px 0; text-align: left; }
+        .faq-row { border-bottom: 1px solid #1e293b; padding: 20px 0; text-align: left; display: block; }
         .faq-row h4 { font-size: 15px; color: #ffffff; margin-bottom: 8px; font-weight: bold; }
         .faq-row p { color: #94a3b8; font-size: 13px; }
 
-        footer { border-top: 1px solid #1e293b; padding-top: 30px; text-align: center; font-size: 12px; color: #475569; margin-top: 50px; }
+        footer { border-top: 1px solid #1e293b; padding-top: 30px; text-align: center; font-size: 12px; color: #475569; margin-top: 60px; display: block; }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
+    <div class="main-scroll-layout">
         
         <!-- HERO -->
         <div class="text-center">
@@ -166,58 +158,60 @@
         </div>
 
         <!-- GUIA MICHELIN -->
-        <div class="box-panel">
-            <h2>Nuestra "Guía Michelin" para Operaciones Mineras</h2>
-            <p>En 1900, Michelin obsequió mapas y guías gratuitas para empujar a los franceses a viajar largas distancias en auto, multiplicando la demanda de sus neumáticos de forma orgánica. Nuestro "Atlas del Riesgo Invisible" sigue el mismo patrón absoluto. Diseñamos data products interactivos gratuitos sobre datasets públicos para evidenciar riesgos ocultos en segundos. Una vez que tu Owner Team experimenta la claridad de un modelo inteligente, los reportes en PDF tradicionales les parecerán obsoletos.</p>
+        <div class="content-row-box">
+            <div class="box-h3">Nuestra "Guía Michelin" para Operaciones Mineras</div>
+            <p class="box-p" style="color: #94a3b8;">En 1900, Michelin obsequió mapas y guías gratuitas para empujar a los franceses a viajar largas distancias en auto, multiplicando la demanda de sus neumáticos de forma orgánica. Nuestro "Atlas del Riesgo Invisible" sigue el mismo patrón absoluto. Diseñamos data products interactivos gratuitos sobre datasets públicos para evidenciar riesgos ocultos en segundos. Una vez que tu Owner Team experimenta la claridad de un modelo inteligente, los reportes en PDF tradicionales les parecerán obsoletos.</p>
         </div>
 
-        <!-- COMPARATIVA ANTES VS DESPUES (TABLA RIGIDA) -->
+        <!-- COMPARATIVA ANTES VS DESPUES (LINEAL) -->
         <div class="text-center">
             <h2 class="block-title">El Cambio de Estándar en la Industria</h2>
             <p class="block-subtitle">Por qué las matrices manuales en Excel y los PDFs densos están poniendo en riesgo tus plazos de inversión corporativos.</p>
             
-            <table class="table-layout">
-                <tr>
-                    <td class="table-cell cell-old">
-                        <div class="cell-title-old">El Viejo Enfoque (Consultoría Tradicional)</div>
-                        <ul class="bullet-list">
-                            <li>✕ Plazos de permisos calculados al "ojo" de expertos sin trazabilidad.</li>
-                            <li>✕ Científicos y abogados arrastrando filas manualmente en celdas de Excel.</li>
-                            <li>✕ Reportes de auditoría ambiental masivos que la mesa directiva no logra interpretar.</li>
-                        </ul>
-                    </td>
-                    <td class="table-cell cell-new">
-                        <div class="cell-title-new">El Nuevo Enfoque (Regulatory Data Products)</div>
-                        <ul class="bullet-list">
-                            <li>✓ Modelado predictivo exacto basado en el comportamiento histórico del regulador.</li>
-                            <li>✓ Prompts e IA operando directamente sobre el dataset estructurado en segundos.</li>
-                            <li>✓ Tableros visuales interactivos y simulaciones que hacen inmediato el riesgo.</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="content-row-box border-red">
+                <div class="title-old">El Viejo Enfoque (Consultoría Tradicional)</div>
+                <ul class="bullet-list">
+                    <li>✕ Plazos de permisos calculados al "ojo" de expertos sin trazabilidad.</li>
+                    <li>✕ Científicos y abogados arrastrando filas manualmente en celdas de Excel.</li>
+                    <li>✕ Reportes de auditoría ambiental masivos que la mesa directiva no logra interpretar.</li>
+                </ul>
+            </div>
+
+            <div class="content-row-box border-green">
+                <div class="title-new">El Nuevo Enfoque (Regulatory Data Products)</div>
+                <ul class="bullet-list">
+                    <li>✓ Modelado predictivo exacto basado en el comportamiento histórico del regulador.</li>
+                    <li>✓ Prompts e IA operando directamente sobre el dataset estructurado en segundos.</li>
+                    <li>✓ Tableros visuales interactivos y simulaciones que hacen inmediato el riesgo.</li>
+                </ul>
+            </div>
         </div>
 
-        <!-- OFERTAS PPM (TABLA RIGIDA CORES) -->
+        <!-- OFERTAS PPM (LINEAL) -->
         <div class="text-center">
             <h2 class="block-title">Elige tu Nivel de Involucramiento</h2>
             <p class="block-subtitle">Alineamos nuestras soluciones al nivel de involucramiento y velocidad operativa que requiere tu infraestructura corporativa.</p>
             
-            <table class="table-layout">
-                <tr>
-                    <td class="table-cell cell-diy">
-                        <span class="offer-tag diy">Opción A: Do It Yourself</span>
-                        <div class="cell-h3">El Curso Masterclass</div>
-                        <p class="cell-p">Diseñado específicamente para ingenieros, científicos y abogados internos que necesitan dejar de ser procesadores manuales de texto y migrar al ecosistema de arquitectos de datos regulatorios con IA.</p>
-                        <ul class="bullet-list">
-                            <li>→ Framework de prompts avanzados para auditar normativas y PDFs extensos.</li>
-                            <li>→ Construcción autónoma de dashboards de riesgo usando Streamlit y Dash.</li>
-                            <li>→ Automatización de matrices de cumplimiento ante cambios legales.</li>
-                        </ul>
-                        <button class="btn-click btn-blue" onclick="alert('Inscripción Masterclass: Te enviaremos el temario técnico.')">Quiero aprender a construirlo</button>
-                    </td>
-                    <td class="table-cell cell-dfy">
-                        <span class="offer-tag dfy">Opción B: Done For You</span>
-                        <div class="cell-h3">Consultoría Estratégica</div>
-                        <p class="cell-p">Diseñado en exclusiva para Owners Teams y Directores de Proyectos Mineros con presupuestos millonarios en riesgo. No tienes tiempo de entrenar personal; necesitas la infraestructura operativa armada ayer.</p>
-                        <ul class="bullet-list">
+            <!-- CARD CURSO -->
+            <div class="content-row-box border-blue">
+                <span class="offer-tag diy">Opción A: Do It Yourself</span>
+                <div class="box-h3">El Curso Masterclass</div>
+                <p class="box-p">Diseñado específicamente para ingenieros, científicos y abogados internos que necesitan dejar de ser procesadores manuales de texto y migrar al ecosistema de arquitectos de datos regulatorios con IA.</p>
+                <ul class="bullet-list">
+                    <li>→ Framework de prompts avanzados para auditar normativas y PDFs extensos.</li>
+                    <li>→ Construcción autónoma de dashboards de riesgo usando Streamlit y Dash.</li>
+                    <li>→ Automatización de matrices de cumplimiento ante cambios legales.</li>
+                </ul>
+                <button class="btn-click btn-blue" onclick="alert('Inscripción Masterclass: Te enviaremos el temario técnico.')">Quiero aprender a construirlo</button>
+            </div>
+
+            <!-- CARD CONSULTORIA -->
+            <div class="content-row-box border-purple">
+                <span class="offer-tag dfy">Opción B: Done For You</span>
+                <div class="box-h3">Consultoría Estratégica</div>
+                <p class="box-p">Diseñado en exclusiva para Owners Teams y Directores de Proyectos Mineros con presupuestos millonarios en riesgo. No tienes tiempo de entrenar personal; necesitas la infraestructura operativa armada ayer.</p>
+                <ul class="bullet-list">
+                    <li>→ Un Gemelo Digital Regulatorio privado, integrado y blindado para tu proyecto.</li>
+                    <li>→ Ingesta e indexación mediante LLMs optimizados para el historial normativo.</li>
+                    <li>→ Alertas algorítmicas predictivas en tiempo real ante nuevas fiscalizaciones.</li>
+                </ul>
